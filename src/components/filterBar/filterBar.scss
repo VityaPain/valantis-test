@@ -1,0 +1,87 @@
+@import '../../style/extends.scss';
+
+.filters {
+    position: fixed;
+    padding: 3px 7px 5px;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 3px;
+    width: 170px;
+
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        padding: 0px 0px 5px;
+        width: 100%;
+
+        border-bottom: 2px solid red;
+
+        &__title {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.1px;
+        }
+
+        &__reset {
+            font-size: 10px;
+            color: gray;
+            cursor: pointer;
+
+            &:hover {
+                @extend %filter-active;
+            }
+        }
+    }
+
+    &__section {
+
+        &:has(.active) {
+            margin-bottom: 5px;
+        }
+
+        img {
+            width: 15px;
+            height: 12px;
+        }
+    }
+}
+
+.brands {
+
+    &__title {
+        @extend %filter-title;
+    }
+
+    &-list {
+        padding-left: 7px;
+        height: 100px;
+        overflow-y: auto;
+
+        &__item {
+            font-size: 12px;
+            cursor: pointer;
+
+            &:hover {
+                color: red;
+            }
+            
+            &:not(:last-child) {
+                margin-bottom: 3px;
+            }
+        }
+    }
+}
+
+.price {
+
+    &__title {
+        display: block;
+        @extend %filter-title;
+    }
+}
+
+.active {
+    @extend %filter-active;
+}
+

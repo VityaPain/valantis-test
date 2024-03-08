@@ -1,0 +1,25 @@
+.pagination {
+    display: flex;
+    column-gap: 25px;
+
+    &-current {
+        padding: 0px 5px;
+        border: 1px solid black;
+        border-radius: 3px;
+        color: red;
+        font-weight: 700;
+        cursor: pointer;
+    }
+}
+
+.arrow {
+    padding: 0px 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+        color: red;
+        border: 1px solid red;
+    }
+}

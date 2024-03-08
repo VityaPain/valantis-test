@@ -1,0 +1,18 @@
+%filter-active {
+    text-decoration: underline;
+    color: red;
+}
+
+%filter-title {
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+
+    &:hover {
+        color: red;
+    }
+
+    &.active {
+        margin-bottom: 3px;
+    }
+}

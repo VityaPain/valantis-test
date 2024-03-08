@@ -1,0 +1,49 @@
+.goodslist {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    &-item {
+        display: flex;
+        flex-direction: column;
+
+        width: 200px;
+        height: 200px;
+        padding: 5px;
+
+        border: 1px solid black;
+        border-radius: 5px;
+
+        &__name {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        &__brand {
+            font-size: 12px;
+            margin-bottom: auto
+        }
+
+        &__bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            &-price {
+                font-size: 18px;
+                color: red;
+                font-weight: 600;
+                letter-spacing: 0.1px;
+                line-height: 100%;
+            }
+
+            &-id {
+                color: gray;
+                font-size: 6px;
+                text-align: end;
+            }
+        }
+    }
+}
