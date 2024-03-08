@@ -16,13 +16,12 @@ const useServer = () => {
     const activeValueFilter = useSelector(selectActiveValueFilter)
 
     const getCypherPassword = useCallback(() => {
-        const date = new Date()
-                            .toLocaleDateString()
-                            .split('.')
-                            .toReversed()
-                            .join('')
+        const date = new Date(),
+              year = date.getUTCFullYear(),
+              month = date.getUTCMonth() + 1 < 10 ? `0${date.getUTCMonth() + 1}` : date.getUTCMonth() + 1,
+              day = date.getUTCDate() < 10 ? `0${date.getUTCDate()}` : date.getUTCDate()
 
-        return md5(`Valantis_${date}`)
+        return md5(`Valantis_${year}${month}${day}`)
     }, [])
 
     const authValue = getCypherPassword()
