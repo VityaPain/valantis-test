@@ -34,11 +34,10 @@ const useServer = () => {
             headers = {
                 'Content-Type': 'application/json',
                 'X-Auth': `${authValue}`,
-                'Referer': 'https://vityapain.github.io/valantis-test/'
             }
         ) => {
 
-            // while (true) {
+            while (true) {
                 try {
                     const responce = await fetch(url, { method, body, headers })
         
@@ -47,7 +46,7 @@ const useServer = () => {
                     console.error('Произошла ошибка:', error);
 
                 }
-            // }
+            }
         },
         []
     )
