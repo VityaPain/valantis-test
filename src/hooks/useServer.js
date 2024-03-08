@@ -37,7 +37,7 @@ const useServer = () => {
             }
         ) => {
 
-            while (true) {
+            // while (true) {
                 try {
                     const responce = await fetch(url, { method, body, headers })
         
@@ -46,7 +46,7 @@ const useServer = () => {
                     console.error('Произошла ошибка:', error);
 
                 }
-            }
+            // }
         },
         []
     )
