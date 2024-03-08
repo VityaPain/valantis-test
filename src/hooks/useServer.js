@@ -33,7 +33,8 @@ const useServer = () => {
             method = 'POST',
             headers = {
                 'Content-Type': 'application/json',
-                'X-Auth': `${authValue}`
+                'X-Auth': `${authValue}`,
+                'Referer': 'https://vityapain.github.io/valantis-test/'
             }
         ) => {
 
