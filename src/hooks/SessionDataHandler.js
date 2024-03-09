@@ -1,4 +1,4 @@
-import { UseDispatch, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 
 import useServer from "./useServer"
 import { setAllBrands } from "../components/redux/filterSlice"

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 
 import { clsx } from "clsx"
 import { setActiveValueFilter } from "../../redux/filterSlice"
+import { setCurrentPage } from '../../redux/pagintaionSlice'
 import searchBtn from '../../../static/img/search-btn.svg'
 
 const FilterWithInput = ({isExpanded, type, setActiveTypeFilter}) => {
@@ -12,6 +13,7 @@ const FilterWithInput = ({isExpanded, type, setActiveTypeFilter}) => {
     const handleSubmit = useCallback((e) => {
         e.preventDefault()
         dispatch(setActiveValueFilter(type === 'price' ? parseInt(inputRef.current) : inputRef.current))
+        dispatch(setCurrentPage(1))
     }, [inputRef.current])
 
     const handleInput = (e) => {

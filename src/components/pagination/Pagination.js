@@ -54,15 +54,18 @@ const Pagination = ({
     return (
         <div className="pagination"
         >
-            <div
-                className="pagination__decrement arrow"
-                onClick={() => decrementPage()}
-            >
-                &larr;
-            </div>
+            { currentPage > 1 && (
+                    <div
+                        className="pagination__decrement"
+                        onClick={() => decrementPage()}
+                    >
+                        &larr;
+                    </div>
+                )
+            }
             {current}
             <div
-                className="pagination__increment arrow"
+                className="pagination__increment"
                 onClick={() => incrementPage()}
             >
                 &rarr;

@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import GoodsItem from './goodsItem/GoodsItem'
 import Spinner from '../spinner/Spinner'
 import Pagination from '../pagination/Pagination'
 import useServer from '../../hooks/useServer'
 import { selectActiveTypeFilter, selectActiveValueFilter } from '../redux/filterSlice'
+import { selectCurrentPage, setCurrentPage } from '../redux/pagintaionSlice'
 
 import './goodsList.scss'
 
 const GoodsList = () => {
-    const [currPage, setCurrPage] = useState(1)
-
     const { isLoading, goods, getGoods, countPages } = useServer()
+
+    const dispatch = useDispatch()
+    const currPage = useSelector(selectCurrentPage)
 
     const filterType = useSelector(selectActiveTypeFilter)
     const filterValue = useSelector(selectActiveValueFilter)
@@ -22,15 +24,15 @@ const GoodsList = () => {
     }, [filterValue, currPage])
 
     const incrementPage = () => {
-        setCurrPage(currPage + 1)
+        dispatch(setCurrentPage(currPage + 1))
     }
 
     const decrementPage = () => {
-        setCurrPage(currPage - 1)
+        dispatch(setCurrentPage(currPage - 1))
     }
 
     const setPage = (value) => {
-        setCurrPage(value)
+        dispatch(setCurrentPage(value))
     }
 
     return (

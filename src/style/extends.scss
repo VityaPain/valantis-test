@@ -16,3 +16,15 @@
         margin-bottom: 3px;
     }
 }
+
+%pagination-arrow {
+    padding: 0px 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+        color: red;
+        border: 1px solid red;
+    }
+}

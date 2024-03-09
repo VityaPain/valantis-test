@@ -1,8 +1,21 @@
+@import '../../style/extends.scss';
+
 .pagination {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: 20px;
+    grid-template-areas: "decr curr incr";
     column-gap: 25px;
 
+    &__decrement {
+        grid-area: decr;
+
+        @extend %pagination-arrow;
+    }
+
     &-current {
+        grid-area: curr;
+
         padding: 0px 5px;
         border: 1px solid black;
         border-radius: 3px;
@@ -10,16 +23,9 @@
         font-weight: 700;
         cursor: pointer;
     }
-}
 
-.arrow {
-    padding: 0px 15px;
-    border: 1px solid black;
-    border-radius: 3px;
-    cursor: pointer;
-
-    &:hover {
-        color: red;
-        border: 1px solid red;
+    &__increment {
+        grid-area: incr;
+        @extend %pagination-arrow;
     }
 }

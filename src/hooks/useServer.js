@@ -12,7 +12,6 @@ const useServer = () => {
     const [countPages, setCounPages] = useState(1)
     const limit = 50
 
-    const activeTypeFilter = useSelector(selectActiveTypeFilter)
     const activeValueFilter = useSelector(selectActiveValueFilter)
 
     const getCypherPassword = useCallback(() => {
@@ -73,6 +72,8 @@ const useServer = () => {
     
             const res = await requestObjectList(body)
     
+            setCounPages(Math.ceil(res.result.length / limit))
+
             getGoodsByIds(res.result, offset, 'filter')
         } else {
             const body = JSON.stringify({
@@ -123,16 +124,7 @@ const useServer = () => {
     }
 
     const selectCountPages = useMemo(async () => {
-        if (activeValueFilter) {
-            const body = JSON.stringify({
-                action: "filter",
-                params: { [activeTypeFilter]: activeValueFilter}
-            })
-    
-            const res = await requestObjectList(body)
-
-            setCounPages(Math.ceil(res.result.length / limit))
-        } else {
+        if (!activeValueFilter) {
             const body = JSON.stringify({
                 action: "get_ids",
                 params: { }
@@ -141,8 +133,7 @@ const useServer = () => {
             const res = await requestObjectList(body)
 
             setCounPages(Math.ceil(Array.from(new Set(res.result)).length / limit))
-        }
-
+        } 
     }, [activeValueFilter])
 
     return {
@@ -150,7 +141,7 @@ const useServer = () => {
         goods,
         getAllBrands,
         getGoods,
-        countPages
+        countPages,
     }
 }
 
